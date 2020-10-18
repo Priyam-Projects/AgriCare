@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_design_for_bg"
+    >
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="344dp"
+        android:layout_height="303dp"
+        android:layout_below="@+id/get_info_button"
+        android:layout_marginLeft="30sp"
+        android:layout_marginTop="22dp"
+        app:srcCompat="@drawable/leaf_logo"
+
+        />
+
+    <EditText
+        android:id="@+id/area_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:layout_marginLeft="45sp"
+        android:ems="15"
+        android:hint="@string/enter_area_in_hectare"
+        android:inputType="numberDecimal"
+        android:background="@drawable/custom_design_for_text_view"
+        android:paddingLeft="20sp"
+        android:paddingRight="20sp"
+        android:paddingTop="20sp"
+        android:paddingBottom="20sp"
+        android:gravity="center"
+        tools:ignore="UnknownId"
+        android:textColorHint="#60bd4d"
+        android:textColor="#0f0f0f"
+        android:textStyle="italic"
+        />
+
+    <Button
+        android:id="@+id/get_info_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/area_edit_text"
+        android:layout_marginLeft="250sp"
+        android:layout_marginTop="30sp"
+        android:background="@drawable/custom_design_for_button"
+        android:paddingLeft="17sp"
+        android:paddingTop="15sp"
+        android:paddingRight="17sp"
+        android:paddingBottom="15sp"
+        android:text="@string/get_info"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.PopupMenu.Small"
+        android:textSize="16dp"
+        android:textColor="#fcfcfc"
+
+
+
+        />
+
+
+</RelativeLayout>
+

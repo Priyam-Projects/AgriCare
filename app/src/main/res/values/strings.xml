@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">AgriCare</string>
+    <string name="area">AREA :</string>
+    <string name="get_info">GET INFO</string>
+    <string name="in_hectare">in hectare</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ph">PH :</string>
+    <string name="nitrogen">NITROGEN :</string>
+    <string name="nitrogen_value">NITROGEN VALUE</string>
+    <string name="cec_value">CEC VALUE</string>
+    <string name="cec">CEC :</string>
+    <string name="ph_value">PH VALUE</string>
+    <string name="rainfall">RAINFALL :</string>
+    <string name="rain_value">RAIN VALUE</string>
+    <string name="temp_value">TEMP VALUE</string>
+    <string name="temperature">TEMPERATURE :</string>
+    <string name="humidity">HUMIDITY :</string>
+    <string name="humidity_value">HUMIDITY VALUE</string>
+    <string name="climate_info">CLIMATE INFO</string>
+    <string name="soil_info">SOIL INFO</string>
+    <string name="get_best_crops">GET BEST CROPS</string>
+    <string name="name">NAME</string>
+    <string name="live">LIVE</string>
+    <string name="future">FUTURE</string>
+    <string name="farmer">FARMER</string>
+    <string name="enter_area_in_hectare">Enter Area in Hectare</string>
+    <string name="textview9">TextView</string>
+    <string name="are_you_sure_to_grow_this">Are you sure to grow this ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="total">TOTAL :</string>
+    <string name="avail">AVAIL :</string>
+    <string name="distance">DISTANCE :</string>
+    <string name="textview">TextView</string>
+    <string name="enter_the_amount_of_crop">ENTER THE AMOUNT OF CROP</string>
+    <string name="submit">SUBMIT</string>
+    <string name="dismiss">DISMISS</string>
+    <string name="home4">HOME</string>
+    <string name="warehouses2">WAREHOUSES</string>
+    <string name="schemes13">SCHEMES</string>
+</resources>

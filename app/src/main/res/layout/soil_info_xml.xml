@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/custom_design_for_bg">
+
+    <TextView
+        android:id="@+id/SOILTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/soil_info"
+        android:textSize="26sp"
+        android:background="@drawable/custom_design_for_text_view_ph"
+        android:paddingLeft="60sp"
+        android:paddingRight="40sp"
+        android:paddingTop="5sp"
+        android:paddingBottom="8sp"
+        android:gravity="center"
+        tools:ignore="UnknownId"
+        android:textColorHint="#fcfcfc"
+        android:textColor="#60bd4d"
+        android:textStyle="italic"
+        android:layout_marginTop="30sp"
+        />
+
+    <TextView
+        android:id="@+id/PHTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ph"
+        android:layout_below="@+id/SOILTEXT"
+        android:layout_marginTop="25sp"
+        android:layout_marginLeft="20sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+        />
+
+
+
+
+    <TextView
+        android:id="@+id/NITROGENTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/nitrogen"
+        android:layout_below="@+id/PHTEXT"
+        android:layout_marginTop="22sp"
+        android:layout_marginLeft="20sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+        />
+
+
+
+    <TextView
+        android:id="@+id/CECTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cec"
+        android:layout_below="@+id/NITROGENTEXT"
+        android:layout_marginTop="22sp"
+        android:layout_marginLeft="20sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+        />
+
+
+
+    <TextView
+        android:id="@+id/CLIMATETEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/CECTEXT"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24sp"
+        android:text="@string/climate_info"
+        android:background="@drawable/custom_design_for_text_view_ph"
+        android:paddingLeft="35sp"
+        android:paddingRight="25sp"
+        android:paddingTop="5sp"
+        android:paddingBottom="8sp"
+        android:gravity="center"
+        tools:ignore="UnknownId"
+        android:textSize="26sp"
+        android:textColorHint="#60bd4d"
+        android:textColor="#60bd4d"
+        android:textStyle="italic"
+
+
+        />
+
+    <TextView
+        android:id="@+id/RAINTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/rainfall"
+        android:layout_below="@+id/CLIMATETEXT"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="20sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+        />
+
+
+
+    <TextView
+    android:id="@+id/TEMPTEXT"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/temperature"
+    android:layout_below="@+id/RAINTEXT"
+    android:layout_marginTop="30sp"
+    android:layout_marginLeft="20sp"
+    android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+    />
+
+
+
+    <TextView
+        android:id="@+id/HUMIDTEXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity"
+        android:layout_below="@+id/TEMPTEXT"
+        android:layout_marginTop="30sp"
+        android:layout_marginLeft="20sp"
+        android:textSize="20sp"
+        android:background="@drawable/custom_for_values"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:paddingBottom="5sp"
+        android:paddingTop="5sp"
+        android:textColor="#60bd4d"
+        />
+
+
+
+    <Button
+        android:id="@+id/get_best_crops_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/get_best_crops"
+        android:layout_below="@+id/HUMIDTEXT"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40sp"
+        android:textSize="20sp"
+        android:textAppearance="@style/Widget.AppCompat.TextView.SpinnerItem"
+        android:background="@drawable/custom_for_get_crops"
+        android:paddingLeft="10sp"
+        android:paddingRight="10sp"
+        android:textColor="#60bd4d"
+        android:textStyle="italic"
+        />
+
+
+</RelativeLayout>

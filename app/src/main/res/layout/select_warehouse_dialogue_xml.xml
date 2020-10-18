@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="30sp"
+    android:background="#ffffff"
+    android:orientation="vertical"
+
+    >
+
+    <EditText
+        android:id="@+id/amount_of_crop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginLeft="40sp"
+        android:paddingLeft="30sp"
+        android:paddingRight="30sp"
+        android:hint="@string/enter_the_amount_of_crop"
+        android:textColor="@android:color/black"
+        android:textSize="23sp"
+        android:inputType="numberDecimal"
+        />
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#3E80B4"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/submit"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:textSize="20sp"
+            />
+
+        <Button
+            android:id="@+id/btn_dismiss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:paddingLeft="6sp"
+            android:background="@android:color/white"
+            android:clickable="true"
+            android:text="@string/dismiss"
+            android:textColor="#5DBCD2"
+            android:textStyle="bold"
+            android:focusable="true"
+            android:textSize="20sp"
+            />
+    </LinearLayout>
+
+</LinearLayout>
