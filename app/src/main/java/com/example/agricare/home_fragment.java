@@ -1,6 +1,4 @@
 package com.example.agricare;
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,14 +24,21 @@ public class home_fragment extends Fragment {
 
     public home_fragment() {
         // Required empty public constructor
+        // We do have other methods to pass arguments in fragments, but by default we can't really overload constructor of fargment
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        //In Fragment we don't generally require onCreate method becuase unlike the activity has setContentView, Fragment has
+        // this onCreateView which happens to assign the layout the given fragment and returns the view
+
+        // Basically it just as same as activity's setcontentview
+
         View rootView = inflater.inflate(R.layout.home_xml, container, false);
 
+        // Layout Inflator instantiates the XML file into the view objects for fragment or activity.
 
         Button get_info = (Button) rootView.findViewById(R.id.get_info_button) ;
 
@@ -50,10 +55,16 @@ public class home_fragment extends Fragment {
 
                     ( (MainActivity)getActivity() ).go_to_soil_info(d1);
 
-                    FragmentManager fm = getFragmentManager();
-                    if (fm.getBackStackEntryCount() > 0) {
-                        fm.popBackStack();
-                    }
+//                     getActivity() when used in fragment, it returns the context of the activity which is closely related to the current fragment
+//                     Context is the abstract base class, every activity and services etc are derived from context
+//                     Each activity is associated with a context, and there is applicationContext which is at the topmost of the whole application.
+
+
+//                    FragmentManager fm = getFragmentManager();
+//                    if (fm.getBackStackEntryCount() > 0) {
+//                        fm.popBackStack();
+//                    }
+
 
 
                 } catch (JSONException e) {

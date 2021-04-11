@@ -56,7 +56,7 @@ import static java.lang.Boolean.TRUE;
 public class MainActivity extends AppCompatActivity {
 
     static MainActivity instance ;
-
+    public static int Main_count = 0 ;
 
     public TextView textView_for_home ;
     public TextView textView_for_warehouse ;
@@ -139,35 +139,14 @@ public class MainActivity extends AppCompatActivity {
         myMap.put("ginger",19);
         myMap.put("maize",20);
 
-        /*
-        "rice",
-          "paddy" ,
-          "potato" ,
-         "brinjal",
-          "masur Dal" ,
-          "mustard",
-          "onion" ,
-          "pumpkin" ,
-          "green chilli" ,
-         "wheat" ,
-         "sweet pumpkin" ,
-         "mango" ,
-         "grapes" ,
-         "watermelon",
-         "arhar dal" ,
-         "bitter gourd" ,
-         "cauliflower ",
-         "cucumbar ",
-         "tomato" ,
-         "ginger" ,
-         "maize"
-         */
 
         //MOST IMP
 
+        // We can access the fragment manager of the current activity by the below code
+
          getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new home_fragment())
-                .commit();
+                .commit(); // Replaces the current fragment with the new one
 
 
          textView_for_home.setOnClickListener(new View.OnClickListener() {
@@ -222,6 +201,13 @@ public class MainActivity extends AppCompatActivity {
 
     public void on_HOME_SELECT(){
 
+         CROPS_LIST.clear();
+
+         count6=0;
+         check1=0;
+         check2=0;
+
+
         textView_for_home.setTextColor(Color.parseColor("#ffffff"));
         textView_for_schemes.setTextColor(Color.parseColor("#adaaaa"));
         textView_for_warehouse.setTextColor(Color.parseColor("#adaaaa"));
@@ -229,16 +215,13 @@ public class MainActivity extends AppCompatActivity {
 
 
         FragmentManager fm = getFragmentManager();
-        if (fm.getBackStackEntryCount() > 0) {
+        while (fm.getBackStackEntryCount() > 0) {
             fm.popBackStack();
         }
 
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container, new home_fragment())
                 .commit();
-
-
-
     }
 
     public void on_WAREHOUSE_SELECT(){
@@ -286,20 +269,18 @@ public class MainActivity extends AppCompatActivity {
 
         JSONObject postData = new JSONObject();
         try {
+            count6=0;
             postData.put("first", 1);
-            postData.put("N", 342);
-            postData.put("Temp", 34);
-            postData.put("Humidity", 56);
-            postData.put("pH", 6.5);
-            postData.put("Rain", 300);
-            postData.put("CEC",13) ;
+            postData.put("N", Nitrogen);
+            postData.put("Temp", temperature);
+            postData.put("Humidity", humidity);
+            postData.put("pH", pH);
+            postData.put("Rain", rainfall);
+            postData.put("CEC",CEC) ;
             new SendDeviceDetails().execute("https://agricare-backend-server.herokuapp.com/SoilFactor",postData.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
-
-
 
     }
 
@@ -327,7 +308,7 @@ public class MainActivity extends AppCompatActivity {
                 httpURLConnection = (HttpURLConnection) new URL(params[0]).openConnection();
                 httpURLConnection.setRequestMethod("POST");
 
-                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoOutput(true); // this is set to true in order to output some body to the server
 
                 DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
                 wr.writeBytes("PostData=" + params[1]);
@@ -361,7 +342,8 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
             //my_progress.dismiss();
-            if(count6==0)do_it() ;
+            if(count6==0)
+                do_it() ;
             else {
                 Extract_percentage_of_farmer extract_percentage_of_farmer = new Extract_percentage_of_farmer();
                 extract_percentage_of_farmer.execute() ;
@@ -414,7 +396,23 @@ public class MainActivity extends AppCompatActivity {
 
                     crop_class.setPercentage_of_farmer(d5);
 
+                    Log.d("are bhai", "aaya toh yaha ");
+
+//                    if(MainActivity.Main_count==1 && crop_name=="paddy" )crop_class.setPercentage_of_farmer(100);
+//
+//                    if( MainActivity.Main_count==2 && crop_name=="rice" ){
+//                        crop_class.setPercentage_of_farmer(50);
+//
+//                    }
+//
+//                    if( MainActivity.Main_count==2 && crop_name=="paddy" ){
+//                        crop_class.setPercentage_of_farmer(50);
+//
+//                    }
+
                     CROPS_LIST.set(i,crop_class) ;
+
+
 
                 }
 
@@ -593,8 +591,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void go_to_soil_info(double area_val) throws JSONException {
 
-
-
         area = area_val ;
 
         //call soil and climate info
@@ -653,7 +649,6 @@ public class MainActivity extends AppCompatActivity {
 
         FetchAsyncTask fetchAsyncTask = new FetchAsyncTask() ;
         fetchAsyncTask.execute() ;
-
 
     }
 
@@ -748,7 +743,7 @@ public class MainActivity extends AppCompatActivity {
 
             temp1 = jsonObject.getString("mean") ;
 
-            if(temp1=="null")pH=75 ;
+            if(temp1=="null")pH=85 ;
 
             else pH = jsonObject.getDouble("mean");
 
@@ -896,12 +891,15 @@ public class MainActivity extends AppCompatActivity {
 
             try {
 
-                URL url = new URL(url_to_fetch) ;
+                //calling methods from within doInBackground forces those methods to be executed in the same background thread
+
+                 URL url = new URL(url_to_fetch) ;
 
                  JSONresponse = "" ;
 
                  makeHTTPrequest(url) ;
                  Log.d("mytag", "isko kar ab: ");
+
                  if(check1==1)Extract_Json_Soil();
                  else if(check1==0) Extract_Json_Weather();
                  else Extract_live_price();
@@ -923,8 +921,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
-            if(check1==0 || check1==1)my_progress.dismiss();
+
             super.onPostExecute(aVoid);
+
+            if(check1==0 || check1==1)my_progress.dismiss();
 
             if(check1==0)get_soil();
 
@@ -959,7 +959,7 @@ public class MainActivity extends AppCompatActivity {
 
         inputStream = urlConnection.getInputStream() ;
 
-        Log.d("mytag", "ye hogaya gandu: ");
+        Log.d("mytag", "ye hogaya bhai: ");
 
         readfromstream(inputStream) ;
 
@@ -979,7 +979,7 @@ public class MainActivity extends AppCompatActivity {
             String each_line = bufferedReader.readLine() ;
 
             while(each_line != null){
-                //Log.d("mytag", "ye hogaya gandu2: " + each_line);
+                //Log.d("mytag", "ye hogaya bhai: " + each_line);
                 my_string_builder.append(each_line) ;
                 each_line = bufferedReader.readLine() ;
             }

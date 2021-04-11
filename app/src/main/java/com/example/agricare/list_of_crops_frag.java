@@ -20,9 +20,6 @@ import java.util.ArrayList;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class list_of_crops_frag extends Fragment {
 
 
@@ -40,7 +37,7 @@ public class list_of_crops_frag extends Fragment {
 
         ListView listView = (ListView)rootView.findViewById(R.id.my_list_view) ;
 
-        Log.d("mytag", "yaha fragment tatk thik hai ");
+        Log.d("mytag", "yaha fragment tak thik hai ");
 
 
         //create an arraylist of crops and its price and then use adaptor
@@ -103,8 +100,11 @@ public class list_of_crops_frag extends Fragment {
             textView = (TextView)ListView.findViewById(R.id.liveprice) ;
 
             double live_price = temp.getLive_price() ;
+//
+//            if(live_price<=35.0)
+//                live_price = 2000 + (Math.random()*2000) ;
 
-            if(live_price==0)live_price =  2000 + ( Math.random() * 1000 ) ;
+            live_price = (int)live_price ;
 
             String s5 = Double.toString(live_price) ;
 
@@ -116,6 +116,17 @@ public class list_of_crops_frag extends Fragment {
 
             double percentage = temp.getPercentage_of_farmer();
 
+//            if(MainActivity.Main_count==1 && (temp.getName().toLowerCase()=="paddy")  ){
+//                percentage=100 ;
+//            }
+//
+//            if(MainActivity.Main_count==2 && (temp.getName().toLowerCase()=="paddy")  ){
+//                percentage=50 ;
+//            }
+//            if(MainActivity.Main_count==2 && (temp.getName().toLowerCase()=="rice")  ){
+//                percentage=50 ;
+//            }
+
             s5 = Double.toString(percentage) ;
 
             textView.setText( s5 );
@@ -124,13 +135,13 @@ public class list_of_crops_frag extends Fragment {
 
             double expexted_price = temp.getExpected_price() ;
 
-            expexted_price = live_price + ( (1/(1 + percentage + (MainActivity.rainfall) )) * 100 ) ;
+            expexted_price = live_price + ( (1/(1 + percentage + (MainActivity.rainfall) )) * 1000 ) ;
+
+            expexted_price = (int)expexted_price ;
 
             s5 = Double.toString(expexted_price) ;
 
             textView.setText( s5 );
-
-
 
 
             ListView.setOnClickListener(new View.OnClickListener() {

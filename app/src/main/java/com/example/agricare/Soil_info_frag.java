@@ -15,9 +15,6 @@ import android.widget.TextView;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * A simple {@link Fragment} subclass.
- */
 public class Soil_info_frag extends Fragment {
 
 
@@ -25,16 +22,20 @@ public class Soil_info_frag extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.soil_info_xml, container, false);
 
-       // Log.d("veryimp", ( ( MainActivity ).pH ).toString() );
+        Log.d("abhi kar raha", ( Double.toString( MainActivity.pH )  )) ;
 
-        Log.d("mytag", "yaha kya hua yaar:") ;
+        Log.d("mytag", "yaha kya hua yaar :  ") ;
 
+
+
+        // we can access these variables from other class without even creating any instance, because :
+        //      1. these variables are declared as public
+        //      2. these variables are declared as static so we can access them without instance
 
         double pH_val = MainActivity.pH ;
         double cec_val = MainActivity.CEC ;
@@ -52,7 +53,8 @@ public class Soil_info_frag extends Fragment {
         textView = (TextView)rootView.findViewById(R.id.CECTEXT) ;
         textView.setText(String.format("CEC : %.2f", cec_val));
 
-        if(rain_val==0)rain_val = 150 + ( Math.random()*100 ) ;
+//        if(rain_val==0)
+//            rain_val = 150 + ( Math.random()*100 ) ;
 
         textView = (TextView)rootView.findViewById(R.id.RAINTEXT) ;
         textView.setText( String.format("RAIN : %.2f", rain_val) );
@@ -69,12 +71,14 @@ public class Soil_info_frag extends Fragment {
             @Override
             public void onClick(View v) {
 
+                // we are provoking a non-static method without creating its instance by using context
+
                 ( (MainActivity)getActivity() ).go_to_best_crops();
 
                 FragmentManager fm = getFragmentManager();
-                if (fm.getBackStackEntryCount() > 0) {
-                    fm.popBackStack();
-                }
+//                if (fm.getBackStackEntryCount() > 0) {
+//                    fm.popBackStack();
+//                }
 
             }
         });

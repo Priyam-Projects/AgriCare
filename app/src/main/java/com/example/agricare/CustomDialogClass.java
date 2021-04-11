@@ -142,7 +142,41 @@ public class CustomDialogClass extends Dialog implements
 
             MainActivity a = MainActivity.getInstance();
 
-            a.on_HOME_SELECT();
+//            if( MainActivity.Main_count == 0 ) {
+//
+//                for (int i = 0; i < (MainActivity.CROPS_LIST.size()); i++) {
+//                    if (MainActivity.CROPS_LIST.get(i).getName().toLowerCase().contains("paddy")) {
+//                        CROP_CLASS crop_class = MainActivity.CROPS_LIST.get(i);
+//                        crop_class.setPercentage_of_farmer(100);
+//                        MainActivity.CROPS_LIST.set(i, crop_class);
+//                    }
+//                }
+//                MainActivity.Main_count=1;
+//            }
+//
+//            else {
+//
+//                for (int i = 0; i < (MainActivity.CROPS_LIST.size()); i++) {
+//                    if (MainActivity.CROPS_LIST.get(i).getName().toLowerCase().contains("potato")) {
+//                        CROP_CLASS crop_class = MainActivity.CROPS_LIST.get(i);
+//                        crop_class.setPercentage_of_farmer(50);
+//                        MainActivity.CROPS_LIST.set(i, crop_class);
+//                    }
+//                    if (MainActivity.CROPS_LIST.get(i).getName().toLowerCase().contains("paddy")) {
+//                        CROP_CLASS crop_class = MainActivity.CROPS_LIST.get(i);
+//                        crop_class.setPercentage_of_farmer(50);
+//                        MainActivity.CROPS_LIST.set(i, crop_class);
+//                    }
+//
+//
+//                }
+//
+//
+//
+//            }
+
+
+
 
             //my_progress.dismiss();
 
